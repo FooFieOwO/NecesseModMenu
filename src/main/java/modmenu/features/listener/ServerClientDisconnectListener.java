@@ -8,7 +8,7 @@ public class ServerClientDisconnectListener extends GameEventListener<ServerClie
 
     @Override
     public void onEvent(final ServerClientDisconnectEvent event) {
-        ModMenu.instance.playerDataManger.create(event.client.playerMob);
+        ModMenu.instance.playerDataManger.destroy(event.client.playerMob);
     }
 
 }
