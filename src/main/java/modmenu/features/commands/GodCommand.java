@@ -1,6 +1,7 @@
 package modmenu.features.commands;
 
-import modmenu.features.methodpatches.SetHealthPatch;
+import modmenu.ModMenu;
+import modmenu.data.playerdata.PlayerData;
 import necesse.engine.commands.CmdParameter;
 import necesse.engine.commands.CommandLog;
 import necesse.engine.commands.ModularChatCommand;
@@ -12,6 +13,7 @@ import necesse.engine.network.server.ServerClient;
 import necesse.entity.mobs.PlayerMob;
 
 public class GodCommand extends ModularChatCommand {
+
     public GodCommand() {
         super("god", "This command sets a player to godmode", PermissionLevel.ADMIN, true,
                 new CmdParameter("player", new ServerClientParameterHandler()));
@@ -23,12 +25,13 @@ public class GodCommand extends ModularChatCommand {
 
         if (target != null) {
             final PlayerMob playerMob = target.playerMob;
+            final PlayerData playerData = ModMenu.instance.playerDataManger.get(playerMob);
 
-            if (SetHealthPatch.players.contains(playerMob)) {
-                SetHealthPatch.players.remove(playerMob);
+            if (playerData.godMode) {
+                playerData.godMode = false;
                 logs.add("Godmode disabled for player " + playerMob.getDisplayName() + "!");
             } else {
-                SetHealthPatch.players.add(playerMob);
+                playerData.godMode = true;
                 logs.add("Godmode enabled for player " + playerMob.getDisplayName() + "!");
             }
         } else {
