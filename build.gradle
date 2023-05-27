@@ -7,7 +7,7 @@ plugins {
 
 project.ext.modID = "foofieowo.modmenu" // The unique id of your mod. Must be all lowercase and cannot use special characters.
 project.ext.modName = "ModMenu" // The display name of your mod.
-project.ext.modVersion = "0.2" // Your current builds version. Must follow the xx.xx... format.
+project.ext.modVersion = "0.3" // Your current builds version. Must follow the xx.xx... format.
 project.ext.gameVersion = "0.21.29" // The target game version.
 project.ext.modDescription = "This is a little gui based cheat mod for Necesse" // Short description of what your mod is.
 project.ext.author = "FooFieOwO" // Your name
