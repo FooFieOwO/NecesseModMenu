@@ -2,6 +2,7 @@ package modmenu;
 
 import modmenu.data.playerdata.PlayerDataManger;
 import modmenu.features.commands.GodCommand;
+import modmenu.features.commands.UnlockAchievements;
 import modmenu.features.listener.ServerClientConnectListener;
 import modmenu.features.listener.ServerClientDisconnectListener;
 import necesse.engine.GameEvents;
@@ -31,6 +32,7 @@ public class ModMenu {
 
     public void postInit() {
         CommandsManager.registerServerCommand(new GodCommand());
+        CommandsManager.registerClientCommand(new UnlockAchievements());
     }
 
 }
