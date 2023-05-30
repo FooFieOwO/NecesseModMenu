@@ -15,7 +15,7 @@ public class CheatMenu extends Form {
     public boolean shown;
 
     public CheatMenu(final FormManager formManager, final Client client) {
-        super("Attributes", 500, 330);
+        super("Cheats", 500, 330);
         this.setPosition(700, 150);
 
         this.formManager = formManager;
