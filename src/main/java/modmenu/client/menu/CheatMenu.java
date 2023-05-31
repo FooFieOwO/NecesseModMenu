@@ -14,6 +14,8 @@ public class CheatMenu extends Form {
     private final Client client;
     public boolean shown;
 
+    public CurrentMenu currentMenu = CurrentMenu.Main;
+
     public CheatMenu(final FormManager formManager, final Client client) {
         super("Cheats", 500, 330);
         this.setPosition(700, 150);
@@ -33,9 +35,30 @@ public class CheatMenu extends Form {
     }
 
     public void initMenu() {
-        this.addComponent(new FormTextButton("GodMode", "Enables your godmode", 10, 10, 100).onClicked(e -> {
-            System.out.println("GodMode");
-        }));
+        for (int i = 1; i < CurrentMenu.values().length; i++) {
+            final CurrentMenu menu = CurrentMenu.values()[i];
+            final FormTextButton button = new FormTextButton(menu.name, menu.description, 10, 10 + (12 * ((i - 1) * 3)), 100);
+
+            button.onClicked(e -> {
+                this.clearComponents();
+                this.currentMenu = menu;
+                this.initPane();
+            });
+
+            this.addComponent(button);
+        }
+    }
+
+    public void initPane() {
+        final FormTextButton button = new FormTextButton("<", "", 5, 5, 30);
+
+        button.onClicked(e -> {
+            this.clearComponents();
+            this.currentMenu = CurrentMenu.Main;
+            this.initMenu();
+        });
+
+        this.addComponent(button);
     }
 
 }
