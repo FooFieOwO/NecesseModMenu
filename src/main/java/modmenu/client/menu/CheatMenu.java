@@ -1,4 +1,4 @@
-package modmenu.menu;
+package modmenu.client.menu;
 
 import necesse.engine.control.InputEvent;
 import necesse.engine.network.client.Client;

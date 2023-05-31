@@ -1,4 +1,4 @@
-package modmenu.features.listener;
+package modmenu.client.listener;
 
 import modmenu.ModMenu;
 import necesse.engine.GameEventListener;

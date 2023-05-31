@@ -1,4 +1,4 @@
-package modmenu.menu;
+package modmenu.client.menu;
 
 import necesse.engine.Settings;
 import necesse.engine.localization.message.StaticMessage;

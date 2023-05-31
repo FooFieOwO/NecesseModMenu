@@ -1,4 +1,4 @@
-package modmenu.features.commands;
+package modmenu.client.commands;
 
 import necesse.engine.commands.CommandLog;
 import necesse.engine.commands.ModularChatCommand;

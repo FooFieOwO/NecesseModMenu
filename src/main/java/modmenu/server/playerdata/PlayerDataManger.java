@@ -1,4 +1,4 @@
-package modmenu.data.playerdata;
+package modmenu.server.playerdata;
 
 import necesse.entity.mobs.PlayerMob;
 

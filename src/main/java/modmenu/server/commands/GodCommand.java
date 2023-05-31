@@ -1,7 +1,7 @@
-package modmenu.features.commands;
+package modmenu.server.commands;
 
 import modmenu.ModMenu;
-import modmenu.data.playerdata.PlayerData;
+import modmenu.server.playerdata.PlayerData;
 import necesse.engine.commands.CmdParameter;
 import necesse.engine.commands.CommandLog;
 import necesse.engine.commands.ModularChatCommand;

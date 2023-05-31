@@ -1,10 +1,10 @@
 package modmenu;
 
-import modmenu.data.playerdata.PlayerDataManger;
-import modmenu.features.commands.GodCommand;
-import modmenu.features.commands.UnlockAchievements;
-import modmenu.features.listener.ServerClientConnectListener;
-import modmenu.features.listener.ServerClientDisconnectListener;
+import modmenu.client.commands.UnlockAchievements;
+import modmenu.client.listener.ServerClientConnectListener;
+import modmenu.client.listener.ServerClientDisconnectListener;
+import modmenu.server.commands.GodCommand;
+import modmenu.server.playerdata.PlayerDataManger;
 import necesse.engine.GameEvents;
 import necesse.engine.commands.CommandsManager;
 import necesse.engine.events.ServerClientConnectedEvent;

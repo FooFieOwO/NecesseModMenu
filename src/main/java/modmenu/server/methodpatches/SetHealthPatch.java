@@ -1,7 +1,7 @@
-package modmenu.features.methodpatches;
+package modmenu.server.methodpatches;
 
 import modmenu.ModMenu;
-import modmenu.data.playerdata.PlayerData;
+import modmenu.server.playerdata.PlayerData;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
 import necesse.entity.mobs.Attacker;
 import necesse.entity.mobs.Mob;

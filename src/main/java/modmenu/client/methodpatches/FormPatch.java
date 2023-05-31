@@ -1,6 +1,6 @@
-package modmenu.features.methodpatches;
+package modmenu.client.methodpatches;
 
-import modmenu.menu.CheatInventoryButton;
+import modmenu.client.menu.CheatInventoryButton;
 import necesse.engine.modLoader.annotations.ModMethodPatch;
 import necesse.engine.network.client.Client;
 import necesse.gfx.forms.MainGameFormManager;
