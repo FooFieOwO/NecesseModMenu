@@ -1,5 +1,6 @@
 package modmenu.client.menu;
 
+import modmenu.utils.AchievementsUnlocker;
 import necesse.engine.control.InputEvent;
 import necesse.engine.network.client.Client;
 import necesse.engine.tickManager.TickManager;
@@ -35,30 +36,58 @@ public class CheatMenu extends Form {
     }
 
     public void initMenu() {
+        this.currentMenu = CurrentMenu.Main;
+
         for (int i = 1; i < CurrentMenu.values().length; i++) {
             final CurrentMenu menu = CurrentMenu.values()[i];
-            final FormTextButton button = new FormTextButton(menu.name, menu.description, 10, 10 + (12 * ((i - 1) * 3)), 100);
 
-            button.onClicked(e -> {
-                this.clearComponents();
-                this.currentMenu = menu;
-                this.initPane();
-            });
-
-            this.addComponent(button);
+            this.addComponent(
+                    new FormTextButton(menu.name, menu.description, 10, 10 + (12 * ((i - 1) * 3)), 100)
+                            .onClicked(e -> {
+                                this.clearComponents();
+                                this.currentMenu = menu;
+                                this.initPane();
+                            })
+            );
         }
+
+        this.addComponent(new FormTextButton("X", "Close", 455, 10, 30).onClicked(e -> {
+            this.shown = false;
+            this.formManager.removeComponent(this);
+        }));
     }
 
     public void initPane() {
-        final FormTextButton button = new FormTextButton("<", "", 5, 5, 30);
-
-        button.onClicked(e -> {
+        this.addComponent(new FormTextButton("<", "Back", 455, 10, 30).onClicked(e -> {
             this.clearComponents();
-            this.currentMenu = CurrentMenu.Main;
             this.initMenu();
-        });
+        }));
 
-        this.addComponent(button);
+        switch (this.currentMenu) {
+            case Player:
+                this.initPlayerMenu();
+                break;
+            case Server:
+                this.initServerMenu();
+                break;
+            case Misc:
+                this.initMiscMenu();
+                break;
+        }
+    }
+
+    public void initPlayerMenu() {
+
+    }
+
+    public void initServerMenu() {
+
+    }
+
+    public void initMiscMenu() {
+        this.addComponent(new FormTextButton("Unlock steam", "This Button will unlock all steam achievements!", 10, 10, 150).onClicked(e -> {
+            AchievementsUnlocker.unlock();
+        }));
     }
 
 }
