@@ -1,6 +1,7 @@
 package modmenu;
 
 import modmenu.client.ClientSideStash;
+import modmenu.client.buffs.UnlimitedSummonsBuff;
 import modmenu.client.commands.UnlockAchievements;
 import modmenu.client.listener.ServerClientConnectListener;
 import modmenu.client.listener.ServerClientDisconnectListener;
