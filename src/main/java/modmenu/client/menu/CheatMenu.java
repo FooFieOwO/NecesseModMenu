@@ -5,14 +5,11 @@ import necesse.engine.control.InputEvent;
 import necesse.engine.network.client.Client;
 import necesse.engine.tickManager.TickManager;
 import necesse.entity.mobs.PlayerMob;
-import necesse.gfx.fairType.FairType;
 import necesse.gfx.forms.Form;
 import necesse.gfx.forms.FormManager;
-import necesse.gfx.forms.components.FormTextBox;
+import necesse.gfx.forms.components.FormSlider;
 import necesse.gfx.forms.components.FormTextButton;
 import necesse.gfx.gameFont.FontOptions;
-
-import java.awt.*;
 
 public class CheatMenu extends Form {
 
@@ -77,12 +74,9 @@ public class CheatMenu extends Form {
     }
 
     public void initPlayerMenu() {
-        final FormTextBox speedTextBox = new FormTextBox(new FontOptions(16), FairType.TextAlign.LEFT, Color.white, 5, 15, 80);
-        speedTextBox.setText(String.valueOf(client.getPlayer().getSpeed()));
+        final FormSlider speedTextBox = new FormSlider("Speed", 5, 15, (int) client.getPlayer().getSpeed(), 10, 2000, 200, new FontOptions(16));
+        speedTextBox.onChanged(e -> client.getPlayer().setSpeed(speedTextBox.getValue()));
         this.addComponent(speedTextBox);
-        this.addComponent(new FormTextButton("Apply", "", 90, 5, 150).onClicked(e -> {
-            client.getPlayer().setSpeed(Float.parseFloat(speedTextBox.getText()));
-        }));
     }
 
     public void initServerMenu() {
