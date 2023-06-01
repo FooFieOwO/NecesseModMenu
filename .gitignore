@@ -6,6 +6,7 @@ gen
 
 # Build files
 build
+build.gradle
 .gradle
 
 # Project specific
