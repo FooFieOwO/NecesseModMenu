@@ -1,5 +1,6 @@
 package modmenu.client.menu;
 
+import modmenu.ModMenu;
 import modmenu.utils.AchievementsUnlocker;
 import necesse.engine.control.InputEvent;
 import necesse.engine.network.client.Client;
@@ -74,8 +75,11 @@ public class CheatMenu extends Form {
     }
 
     public void initPlayerMenu() {
-        final FormSlider speedTextBox = new FormSlider("Speed", 5, 15, (int) client.getPlayer().getSpeed(), 10, 2000, 200, new FontOptions(16));
-        speedTextBox.onChanged(e -> client.getPlayer().setSpeed(speedTextBox.getValue()));
+        final FormSlider speedTextBox = new FormSlider("Speed Boost", 5, 15, ModMenu.instance.clientSideStash.speed, 10, 2000, 200, new FontOptions(16));
+        speedTextBox.onChanged(e -> {
+            ModMenu.instance.clientSideStash.speed = speedTextBox.getValue();
+            client.getPlayer().setSpeed(35.0F + speedTextBox.getValue());
+        });
         this.addComponent(speedTextBox);
     }
 

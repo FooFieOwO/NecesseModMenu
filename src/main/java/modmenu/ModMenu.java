@@ -1,6 +1,6 @@
 package modmenu;
 
-import modmenu.client.buffs.UnlimitedSummonsBuff;
+import modmenu.client.ClientSideStash;
 import modmenu.client.commands.UnlockAchievements;
 import modmenu.client.listener.ServerClientConnectListener;
 import modmenu.client.listener.ServerClientDisconnectListener;
@@ -19,6 +19,7 @@ public class ModMenu {
     public static ModMenu instance;
 
     public PlayerDataManger playerDataManger;
+    public ClientSideStash clientSideStash = new ClientSideStash();
 
     public void init() {
         instance = this;
