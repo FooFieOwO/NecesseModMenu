@@ -1,5 +1,6 @@
 package modmenu;
 
+import modmenu.client.buffs.UnlimitedSummonsBuff;
 import modmenu.client.commands.UnlockAchievements;
 import modmenu.client.listener.ServerClientConnectListener;
 import modmenu.client.listener.ServerClientDisconnectListener;
@@ -10,6 +11,7 @@ import necesse.engine.commands.CommandsManager;
 import necesse.engine.events.ServerClientConnectedEvent;
 import necesse.engine.events.ServerClientDisconnectEvent;
 import necesse.engine.modLoader.annotations.ModEntry;
+import necesse.engine.registries.*;
 
 @ModEntry
 public class ModMenu {
@@ -25,6 +27,7 @@ public class ModMenu {
 
         GameEvents.addListener(ServerClientDisconnectEvent.class, new ServerClientDisconnectListener());
         GameEvents.addListener(ServerClientConnectedEvent.class, new ServerClientConnectListener());
+        BuffRegistry.registerBuff("unlimitedsummonsbuff", new UnlimitedSummonsBuff());
     }
 
     public void initResources() {
