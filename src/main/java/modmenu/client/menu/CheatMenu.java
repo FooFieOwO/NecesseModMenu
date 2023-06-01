@@ -5,9 +5,14 @@ import necesse.engine.control.InputEvent;
 import necesse.engine.network.client.Client;
 import necesse.engine.tickManager.TickManager;
 import necesse.entity.mobs.PlayerMob;
+import necesse.gfx.fairType.FairType;
 import necesse.gfx.forms.Form;
 import necesse.gfx.forms.FormManager;
+import necesse.gfx.forms.components.FormTextBox;
 import necesse.gfx.forms.components.FormTextButton;
+import necesse.gfx.gameFont.FontOptions;
+
+import java.awt.*;
 
 public class CheatMenu extends Form {
 
@@ -42,7 +47,7 @@ public class CheatMenu extends Form {
             final CurrentMenu menu = CurrentMenu.values()[i];
 
             this.addComponent(
-                    new FormTextButton(menu.name, menu.description, 10, 10 + (12 * ((i - 1) * 3)), 100)
+                    new FormTextButton(menu.name, menu.description, 5, 5 + (12 * ((i - 1) * 3)), 100)
                             .onClicked(e -> {
                                 this.clearComponents();
                                 this.currentMenu = menu;
@@ -50,15 +55,10 @@ public class CheatMenu extends Form {
                             })
             );
         }
-
-        this.addComponent(new FormTextButton("X", "Close", 455, 10, 30).onClicked(e -> {
-            this.shown = false;
-            this.formManager.removeComponent(this);
-        }));
     }
 
     public void initPane() {
-        this.addComponent(new FormTextButton("<", "Back", 455, 10, 30).onClicked(e -> {
+        this.addComponent(new FormTextButton("<", "Back", 460, 5, 30).onClicked(e -> {
             this.clearComponents();
             this.initMenu();
         }));
@@ -77,7 +77,12 @@ public class CheatMenu extends Form {
     }
 
     public void initPlayerMenu() {
-
+        final FormTextBox speedTextBox = new FormTextBox(new FontOptions(16), FairType.TextAlign.LEFT, Color.white, 5, 15, 80);
+        speedTextBox.setText(String.valueOf(client.getPlayer().getSpeed()));
+        this.addComponent(speedTextBox);
+        this.addComponent(new FormTextButton("Apply", "", 90, 5, 150).onClicked(e -> {
+            client.getPlayer().setSpeed(Float.parseFloat(speedTextBox.getText()));
+        }));
     }
 
     public void initServerMenu() {
@@ -85,7 +90,7 @@ public class CheatMenu extends Form {
     }
 
     public void initMiscMenu() {
-        this.addComponent(new FormTextButton("Unlock steam", "This Button will unlock all steam achievements!", 10, 10, 150).onClicked(e -> {
+        this.addComponent(new FormTextButton("Unlock steam", "This Button will unlock all steam achievements!", 5, 5, 150).onClicked(e -> {
             AchievementsUnlocker.unlock();
         }));
     }
