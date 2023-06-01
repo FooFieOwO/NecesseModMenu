@@ -28,7 +28,7 @@ project.ext.clientside = false
 //project.ext.modOptionalDependencies = ["optional.modid1", "optional.modid2"]
 
 // The path to the games install directory
-def gameDirectory = "C:/Program Files (x86)/Steam/steamapps/common/Necesse"
+def gameDirectory = "D:/1. Spiele/Steam/steamapps/common/Necesse"
 
 // =================================================
 // ========== DO NOT EDIT BELOW THIS LINE ==========
