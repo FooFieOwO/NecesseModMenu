@@ -1,11 +1,11 @@
 package modmenu;
 
 import modmenu.client.ClientSideStash;
-import modmenu.client.buffs.UnlimitedSummonsBuff;
+import modmenu.client.buffs.*;
 import modmenu.client.commands.UnlockAchievements;
 import modmenu.client.listener.ServerClientConnectListener;
 import modmenu.client.listener.ServerClientDisconnectListener;
-import modmenu.server.commands.GodCommand;
+import modmenu.server.commands.*;
 import modmenu.server.playerdata.PlayerDataManger;
 import necesse.engine.GameEvents;
 import necesse.engine.commands.CommandsManager;
@@ -30,6 +30,15 @@ public class ModMenu {
         GameEvents.addListener(ServerClientDisconnectEvent.class, new ServerClientDisconnectListener());
         GameEvents.addListener(ServerClientConnectedEvent.class, new ServerClientConnectListener());
         BuffRegistry.registerBuff("unlimitedsummonsbuff", new UnlimitedSummonsBuff());
+        BuffRegistry.registerBuff("dmgmultbuff", new DamageMultiplierBuff());
+        BuffRegistry.registerBuff("atsbuff", new AttackSpeedBuff());
+        BuffRegistry.registerBuff("insiviblebuff", new InsivibleBuff());
+        BuffRegistry.registerBuff("manymobsbuff", new ManyMobsBuff());
+        BuffRegistry.registerBuff("superminingbuff", new SuperMiningBuff());
+        BuffRegistry.registerBuff("superpickupbuff", new SuperPickupBuff());
+        BuffRegistry.registerBuff("supersummonsbuff", new SuperSummonsBuff());
+        BuffRegistry.registerBuff("maxhealthbuff", new MaxHealthBuff());
+        BuffRegistry.registerBuff("infammobuff", new InfinityAmmoBuff());
     }
 
     public void initResources() {

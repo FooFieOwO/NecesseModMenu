@@ -27,6 +27,9 @@ public class GodCommand extends ModularChatCommand {
             final PlayerMob playerMob = target.playerMob;
             final PlayerData playerData = ModMenu.instance.playerDataManger.get(playerMob);
 
+            playerMob.setMaxHealth(600);
+            playerMob.sendHealthPacket();
+
             if (playerData.godMode) {
                 playerData.godMode = false;
                 logs.add("Godmode disabled for player " + playerMob.getDisplayName() + "!");

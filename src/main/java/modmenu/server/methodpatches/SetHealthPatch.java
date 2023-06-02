@@ -16,8 +16,9 @@ public class SetHealthPatch {
         if (mob instanceof PlayerMob) {
             final PlayerMob playerMob = (PlayerMob) mob;
             final PlayerData playerData = ModMenu.instance.playerDataManger.get(playerMob);
+            //mob.setMaxHealth(500);
 
-            if (playerData != null && playerData.godMode && mob.getHealth() > health)
+            if (playerData != null && mob.getHealth() > health && (playerData.godMode || ModMenu.instance.clientSideStash.godMode))
                 return true;
         }
 

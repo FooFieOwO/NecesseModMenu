@@ -1,12 +1,12 @@
 package modmenu.client.buffs;
 
-import modmenu.ModMenu;
 import necesse.entity.mobs.buffs.ActiveBuff;
 import necesse.entity.mobs.buffs.BuffModifiers;
 import necesse.entity.mobs.buffs.staticBuffs.Buff;
-public class UnlimitedSummonsBuff extends Buff {
 
-    public UnlimitedSummonsBuff() {
+public class ManyMobsBuff extends Buff {
+
+    public ManyMobsBuff() {
         canCancel = false;
         isVisible = false;
         shouldSave = false;
@@ -14,7 +14,8 @@ public class UnlimitedSummonsBuff extends Buff {
 
     @Override
     public void init(ActiveBuff activeBuff) {
-        activeBuff.setModifier(BuffModifiers.MAX_SUMMONS, 1000); // +1000 Max Summons
+        activeBuff.setModifier(BuffModifiers.MOB_SPAWN_RATE, 1000f); // Massive Spawns
+        activeBuff.setModifier(BuffModifiers.MOB_SPAWN_CAP, 100f); // 100er Cap
     }
 
 }
