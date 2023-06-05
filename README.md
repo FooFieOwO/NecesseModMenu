@@ -1,3 +1,2 @@
-An example mod for Necesse.
-
-Check out the [modding wiki page](https://necessewiki.com/Modding) for more.
+## License
+This Mod is licensed under the [Non-Profit Open Software License version 3.0](./LICENSE.md)
